@@ -76,9 +76,11 @@ class BottomSheetImagePicker internal constructor() :
 
     private val adapter by lazy {
         ImageTileAdapter(
+            requireContext(),
             isMultiSelect,
             showCameraTile,
             showGalleryTile,
+            multiSelectMax,
             ::tileClick,
             ::selectionCountChanged
         )

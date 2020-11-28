@@ -1,18 +1,22 @@
 package com.kroegerama.imgpicker
 
+import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 internal class ImageTileAdapter(
+    private val context: Context,
     private val isMultiSelect: Boolean,
     private val showCameraTile: Boolean,
     private val showGalleryTile: Boolean,
+    private val multiSelectMax: Int,
     private val clickListener: (ClickedTile) -> Unit,
     private val selectionCountChanged: (Int) -> Unit
 ) : RecyclerView.Adapter<VHImageTileBase>() {
@@ -84,6 +88,11 @@ internal class ImageTileAdapter(
             clickListener.invoke(ClickedTile.ImageTile(imageList[pos]))
             return
         }
+        if (!selection.contains(position) && selection.size >= multiSelectMax) {
+            Toast.makeText(context, R.string.cantselected, Toast.LENGTH_SHORT).show()
+            return
+        }
+
         if (selection.contains(position)) {
             selectView.isVisible = false
             selection.remove(position)

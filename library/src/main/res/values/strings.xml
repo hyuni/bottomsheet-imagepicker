@@ -5,6 +5,8 @@
     <string name="toastImagePickerNoWritePermission">Write storage permission not granted :(</string>
 
     <string name="imagePickerSingle">Please select an image</string>
+    <string name="cantselected_en">No more images can be selected.</string>
+    <string name="cantselected">더 이상 이미지를 선택할 수 없습니다.</string>
 
     <plurals name="imagePickerMulti">
         <item quantity="one">You have selected one image</item>
