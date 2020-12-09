@@ -71,7 +71,7 @@ class BottomSheetImagePicker internal constructor() :
     @StringRes
     private var emptyRes = R.string.imagePickerEmpty
 
-    private var onImagesSelectedListener: OnImagesSelectedListener? = null
+    var onImagesSelectedListener: OnImagesSelectedListener? = null
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<*>
 
     private val adapter by lazy {
